@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("start");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sets = findViewById(R.id.sets);
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addTime(View v) {
-        System.out.println("addTime");
         int numSets = Integer.parseInt(sets.getText().toString());
         int numReps = Integer.parseInt(reps.getText().toString());
         int uniqueEx = (uE.isChecked()) ? 1 : 0 ;

@@ -20,8 +20,8 @@
 
             <TextView
                 android:id="@+id/editText3"
-                android:layout_width="155dp"
-                android:layout_height="46dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:ems="15"
                 android:inputType="textPersonName"
                 android:text="Exercise 1 length"
@@ -30,12 +30,19 @@
             <TextView
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="45dp"
                 android:ems="10"
                 android:inputType="textPersonName"
 
                 android:text="Rest Time"
                 android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Rest Time Between Sets"
+                android:textSize="18dp"/>
 
         </LinearLayout>
 
@@ -53,15 +60,32 @@
                 android:text="0" />
 
             <EditText
-                android:id="@+id/restTime"
+                android:id="@+id/restExersice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
                 android:text="0" />
 
+            <EditText
+                android:id="@+id/restSets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0"/>
+
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Add"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"/>
 
 
 </RelativeLayout>
