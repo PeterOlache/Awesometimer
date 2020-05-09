@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/editText3"
+                android:id="@+id/exerciseRest"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="15"
@@ -28,7 +28,7 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/editText4"
+                android:id="@+id/restTime"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
@@ -38,7 +38,7 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/setsRest"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:text="Rest Time Between Sets"
@@ -85,7 +85,8 @@
         android:layout_weight="1"
         android:text="Add"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"/>
+        android:layout_marginTop="450dp"
+        android:onClick="next"/>
 
 
 </RelativeLayout>
