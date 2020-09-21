@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Awesome timer</string>
+    <string name="exercise_name">Exercise Name</string>
 </resources>

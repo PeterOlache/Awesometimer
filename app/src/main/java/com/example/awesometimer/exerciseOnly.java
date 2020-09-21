@@ -12,13 +12,16 @@ public class exerciseOnly extends AppCompatActivity {
     private TextView setsRest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //If user has unique exercise but the same rest time
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_only);
 
         Intent intent = getIntent();
-        int[] info = intent.getIntArrayExtra("info");
-        for (int element: info) {
+        int[] info = intent.getIntArrayExtra("INFO"); //get intent and set referance array
+        for (int element: info) { //Debug code to check if data is getting passed correctly
             System.out.println(element);
         }
+
+
     }
 }

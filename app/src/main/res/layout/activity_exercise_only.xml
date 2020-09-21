@@ -21,7 +21,7 @@
             <TextView
                 android:id="@+id/editText3"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="45sp"
                 android:ems="15"
                 android:inputType="textPersonName"
                 android:text="Exercise 1 length"
@@ -30,7 +30,7 @@
             <TextView
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="45sp"
                 android:ems="10"
                 android:inputType="textPersonName"
 
@@ -38,11 +38,18 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/exerciseNameLabel"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="45sp"
+                android:text="@string/exercise_name"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
                 android:text="Rest Time Between Sets"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -66,6 +73,14 @@
                 android:ems="10"
                 android:inputType="number"
                 android:text="0" />
+
+            <EditText
+                android:id="@+id/exerciseNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
 
             <EditText
                 android:id="@+id/restSets"
