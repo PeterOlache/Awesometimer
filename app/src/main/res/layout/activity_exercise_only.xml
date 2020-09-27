@@ -19,36 +19,36 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/editText3"
+                android:id="@+id/exerciseOnlyLengthLabel"
                 android:layout_width="match_parent"
                 android:layout_height="45sp"
                 android:ems="15"
                 android:inputType="textPersonName"
-                android:text="Exercise 1 length"
+                android:text="@string/exercise_1_length"
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/editText4"
+                android:id="@+id/exerciseOnlyRestLabel"
                 android:layout_width="match_parent"
                 android:layout_height="45sp"
                 android:ems="10"
                 android:inputType="textPersonName"
 
-                android:text="Rest Time"
+                android:text="@string/rest_time"
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/exerciseNameLabel"
+                android:id="@+id/exerciseOnlyNameLabel"
                 android:layout_width="match_parent"
                 android:layout_height="45sp"
                 android:text="@string/exercise_name"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/exerciseOnlyRestSetLabel"
                 android:layout_width="match_parent"
                 android:layout_height="45sp"
-                android:text="Rest Time Between Sets"
+                android:text="@string/rest_time_between_sets"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -59,31 +59,31 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/exerciseLength"
+                android:id="@+id/exerciseOnlyLengthEdit"
                 android:layout_width="68dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0" />
+                android:text="@string/_0" />
 
             <EditText
-                android:id="@+id/restExersice"
+                android:id="@+id/exerciseOnlyRestEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0" />
+                android:text="@string/rest_time_preset_text" />
 
             <EditText
-                android:id="@+id/exerciseNameEdit"
+                android:id="@+id/exerciseOnlyNameEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="@string/exercise_name_preset" />
 
             <EditText
-                android:id="@+id/restSets"
+                android:id="@+id/exerciseOnlyRestSetEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -94,13 +94,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Add"
+        android:id="@+id/ExerciseOnlyAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Add"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"/>
+        android:layout_marginTop="450dp"
+        android:layout_weight="1"
+        android:onClick="addExercise"
+        android:text="@string/add_exercise_button" />
 
 
 </RelativeLayout>

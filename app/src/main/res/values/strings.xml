@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Awesome timer</string>
     <string name="exercise_name">Exercise Name</string>
+    <string name="rest_time_between_sets">Rest Time Between Sets</string>
+    <string name="exercise_1_length">Exercise 1 length</string>
+    <string name="rest_time">Rest Time</string>
+    <string name="_0">0</string>
+    <string name="rest_time_preset_text">0</string>
+    <string name="exercise_name_preset">Name</string>
+    <string name="add_exercise_button">Add</string>
 </resources>
