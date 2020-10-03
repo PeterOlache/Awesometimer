@@ -54,22 +54,32 @@ public class exerciseOnly extends AppCompatActivity {
             setsRest.setVisibility(View.INVISIBLE);
         }
         timer.add(rep);
-        timer.add(repRest);
+        if (count < info[0]) {
+            System.out.println("IN IF");
+            timer.add(repRest);
+        }else{
+            timer.add(set);
+        }
         count++;
         repsTime.setText("0");
         repsTimeText.setText("Exercise " + count + " length");
-        for (int element: timer) {
-            System.out.println(element);
-        }
+        Intent intent;
+
         if (count >= info[0]+1){
-            pageDone();
+            int tempCount = 0;
+            int[] finTimer = new int[timer.size()*info[1]-1];
+            for (int i = 0; i < finTimer.length; i++){
+                finTimer[i] = timer.get(tempCount);
+                if (tempCount == timer.size()-1){
+                    tempCount = 0;
+                } else{
+                    tempCount ++;
+                }
+            }
+            intent = new Intent(this, startTimer.class);
+            intent.putExtra("timer", finTimer);
+            startActivity(intent);
         }
     }
 
-    public void pageDone(){
-        for(int i=0; i < info[1]; i++){
-
-        }
-        System.out.println("pageDone");
-    }
 }

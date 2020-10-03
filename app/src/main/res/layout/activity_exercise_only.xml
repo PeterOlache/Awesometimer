@@ -23,7 +23,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="15"
-                android:inputType="textPersonName"
                 android:text="Exercise 1 length"
                 android:textSize="18dp" />
 
@@ -32,8 +31,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-
                 android:text="Rest Time"
                 android:textSize="18dp" />
 

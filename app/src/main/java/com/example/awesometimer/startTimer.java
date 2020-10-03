@@ -3,7 +3,6 @@ package com.example.awesometimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -11,61 +10,37 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 
-public class page2 extends AppCompatActivity {
+public class startTimer extends AppCompatActivity {
+    private int[] timer ;
+    private boolean timerRunning;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMilliseconds;
     private TextView countdownText;
     private Button countdownButton;
-    private Button addTimeButton;
-    private CountDownTimer countDownTimer;
-    private EditText editText;
-    private boolean timerRunning;
-    private long timeLeftInMilliseconds;
-    private LinearLayout view;
+    private int countCountdown;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page2);
-        editText = findViewById(R.id.timerLength);
-        countdownText = findViewById(R.id.countdown_text);
-        countdownButton = findViewById(R.id.countdown_button);
-        addTimeButton =  findViewById(R.id.addTime);
-        view = findViewById(R.id.linearLayout);
+        setContentView(R.layout.activity_start_timer);
+        countdownText = findViewById(R.id.time);
+        countdownButton = findViewById(R.id.startStop);
         Intent intent = getIntent();
-        int[] info = intent.getIntArrayExtra("info");
-        for (int element: info) {
-            System.out.println(element);
-        }
+        timer = intent.getIntArrayExtra("timer");
+        System.out.println("TIMER PAGE");
+        System.out.println(timer[0]);
+        timeLeftInMilliseconds = timer[0] * 1000;
+        countCountdown = 1;
 
-        addTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addTime();
-            }
-        });
-
-        countdownButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                startStop();
-            }
-        });
     }
 
-    public void addTime() {
-        String temp=editText.getText().toString();
-        if (!"".equals(temp)){
-            timeLeftInMilliseconds=Long.parseLong(temp);
-            timeLeftInMilliseconds = timeLeftInMilliseconds * 1000;
-            updateTimer();
-        }
-    }
-
-    public void startStop() {
+    public void startStop(View v) {
+        System.out.println("in StartStop");
         if(timerRunning){
             stopTimer();
         } else {
@@ -74,8 +49,8 @@ public class page2 extends AppCompatActivity {
     }
 
     public void startTimer() {
-        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
 
+        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
             @Override
             public void onTick(long l) {
                 timeLeftInMilliseconds = l;
@@ -98,7 +73,9 @@ public class page2 extends AppCompatActivity {
     }
 
     public void updateTimer(){
-        long displaytime = timeLeftInMilliseconds - 1000;
+        System.out.println("update");
+
+        long displaytime = timeLeftInMilliseconds;
         int minutes = (int) displaytime / 60000;
         int seconds = (int) displaytime % 60000 / 1000;
 
@@ -113,13 +90,19 @@ public class page2 extends AppCompatActivity {
         timeLeftText += seconds;
         countdownText.setText(timeLeftText);
 
-        if (seconds == 0){
+        if (seconds < 1){
             alarm();
+            if (countCountdown < timer.length) {
+                System.out.println("TimeLEFT " + timer[countCountdown]);
+                timeLeftInMilliseconds = timer[countCountdown]*1000;
+                countCountdown ++;
+                startTimer();
+            }
+
         }
     }
 
     public void alarm(){
-        view.setBackgroundColor(Color.argb(255, 255, 0, 0));
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
         r.play();

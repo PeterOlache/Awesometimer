@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         reps = findViewById(R.id.reps);
         uE = findViewById(R.id.uniqueExercise);
         uR = findViewById(R.id.uniqueRest);
+        System.out.println("TEST");
     }
 
     public void addTime(View v) {
