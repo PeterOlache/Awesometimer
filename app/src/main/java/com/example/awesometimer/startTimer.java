@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class startTimer extends AppCompatActivity {
-    private int[] timer ;
+    private int[] timer;
     private boolean timerRunning;
     private CountDownTimer countDownTimer;
     private long timeLeftInMilliseconds;
@@ -34,14 +34,15 @@ public class startTimer extends AppCompatActivity {
         timer = intent.getIntArrayExtra("timer");
         System.out.println("TIMER PAGE");
         System.out.println(timer[0]);
-        timeLeftInMilliseconds = timer[0] * 1000;
+        timeLeftInMilliseconds = (timer[0] + 2) * 1000;
         countCountdown = 1;
+        updateTimer();
 
     }
 
     public void startStop(View v) {
         System.out.println("in StartStop");
-        if(timerRunning){
+        if (timerRunning) {
             stopTimer();
         } else {
             startTimer();
@@ -59,6 +60,7 @@ public class startTimer extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                System.out.println("finish");
 
             }
         }.start();
@@ -72,37 +74,37 @@ public class startTimer extends AppCompatActivity {
         countdownButton.setText("START");
     }
 
-    public void updateTimer(){
+    public void updateTimer() {
         System.out.println("update");
-
+        System.out.println(timeLeftInMilliseconds);
         long displaytime = timeLeftInMilliseconds;
         int minutes = (int) displaytime / 60000;
         int seconds = (int) displaytime % 60000 / 1000;
+        seconds -= 1;
 
         String timeLeftText;
 
         timeLeftText = "" + minutes + ":";
 
-        if (seconds < 10){
+        if (seconds < 10) {
             timeLeftText += "0";
         }
 
         timeLeftText += seconds;
         countdownText.setText(timeLeftText);
-
-        if (seconds < 1){
+        if (seconds < 1) {
             alarm();
             if (countCountdown < timer.length) {
                 System.out.println("TimeLEFT " + timer[countCountdown]);
-                timeLeftInMilliseconds = timer[countCountdown]*1000;
-                countCountdown ++;
+                timeLeftInMilliseconds = (timer[countCountdown] + 2) * 1000;
+                countCountdown++;
                 startTimer();
             }
 
         }
     }
 
-    public void alarm(){
+    public void alarm() {
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
         r.play();
