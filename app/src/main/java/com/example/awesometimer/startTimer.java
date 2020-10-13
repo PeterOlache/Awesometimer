@@ -76,7 +76,6 @@ public class startTimer extends AppCompatActivity {
 
     public void updateTimer() {
         System.out.println("update");
-        System.out.println(timeLeftInMilliseconds);
         long displaytime = timeLeftInMilliseconds;
         int minutes = (int) displaytime / 60000;
         int seconds = (int) displaytime % 60000 / 1000;
@@ -91,6 +90,7 @@ public class startTimer extends AppCompatActivity {
         }
 
         timeLeftText += seconds;
+        System.out.println(timeLeftText);
         countdownText.setText(timeLeftText);
         if (seconds < 1) {
             alarm();
