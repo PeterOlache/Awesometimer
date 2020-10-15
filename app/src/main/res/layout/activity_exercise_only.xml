@@ -98,21 +98,5 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
-        android:onClick="addExercise"
-        android:text="@string/add_exercise_button" />
-
-    <Button
-        android:id="@+id/begin_workout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginBottom="-73dp"
-        android:layout_toEndOf="@+id/ExerciseOnlyAddButton"
-        android:layout_toRightOf="@+id/ExerciseOnlyAddButton"
-        android:onClick="beginWorkout"
-        android:text="@string/begin_workout" />
-
-
+        android:onClick="next"/>
 </RelativeLayout>

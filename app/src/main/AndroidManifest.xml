@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".noneUnique"></activity>
+        <activity
+            android:name=".startTimer"
+            android:label="@string/title_activity_start_timer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".TimerPage" />
+        <activity android:name=".noneUnique" />
         <activity android:name=".exerciseAndRest" />
         <activity android:name=".restOnly" />
         <activity android:name=".exerciseOnly" />
-        <activity android:name=".page2" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

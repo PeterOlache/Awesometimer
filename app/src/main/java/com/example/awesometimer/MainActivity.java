@@ -3,20 +3,13 @@ package com.example.awesometimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    //global variables for input
     private TextView sets;
     private TextView reps;
     private CheckBox uE;
@@ -49,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(this, noneUnique.class);
         }
         intent.putExtra("INFO", info); //Capitalized because after put extra data is immutable
-
         startActivity(intent);
     }
 }
