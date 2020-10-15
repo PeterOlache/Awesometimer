@@ -13,14 +13,14 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class exerciseOnly extends AppCompatActivity {
-    private TextView repsTime;
-    private TextView repsRest;
-    private TextView setsRest;
+    private EditText repsTime;
+    private EditText repsRest;
+    private EditText setsRest;
     private TextView repsTimeText;
     private TextView restTimeText;
     private TextView setsRestText;
     private int[] info;
-    private ArrayList<Integer> timer = new ArrayList<Integer>();;
+    private ArrayList<Integer> timer = new ArrayList<Integer>();
     private int count;
     private  int repRest;
     private  int set;
@@ -33,17 +33,17 @@ public class exerciseOnly extends AppCompatActivity {
 
         count = 1;
         Intent intent = getIntent();
-        info = intent.getIntArrayExtra("info");
+        info = intent.getIntArrayExtra("INFO");
         for (int element: info) {
             System.out.println(element);
         }
 
-        repsTime = findViewById(R.id.exerciseLength);
-        repsRest = findViewById(R.id.restExersice);
-        setsRest = findViewById(R.id.restSets);
-        repsTimeText = findViewById(R.id.exerciseRest);
-        restTimeText = findViewById(R.id.restTime);
-        setsRestText = findViewById(R.id.setsRest);
+        repsTime = findViewById(R.id.exerciseOnlyLengthEdit);
+        repsRest = findViewById(R.id.exerciseOnlyRestEdit);
+        setsRest = findViewById(R.id.exerciseOnlyRestSetEdit);
+        repsTimeText = findViewById(R.id.exerciseOnlyLengthLabel);
+        restTimeText = findViewById(R.id.exerciseOnlyRestLabel);
+        setsRestText = findViewById(R.id.exerciseOnlyRestSetLabel);
     }
 
     public void next(View v){

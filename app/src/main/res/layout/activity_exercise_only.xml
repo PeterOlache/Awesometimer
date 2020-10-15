@@ -10,7 +10,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -87,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0" />
+                android:text="0"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -98,5 +99,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
-        android:onClick="next"/>
+        android:layout_weight="1"
+        android:onClick="next"
+        android:text="@string/add_exercise_button" />
+
+
 </RelativeLayout>
