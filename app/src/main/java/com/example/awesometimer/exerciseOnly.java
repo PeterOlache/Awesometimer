@@ -16,14 +16,15 @@ public class exerciseOnly extends AppCompatActivity {
     private EditText repsTime;
     private EditText repsRest;
     private EditText setsRest;
+    private EditText exerciseName;
     private TextView repsTimeText;
     private TextView restTimeText;
     private TextView setsRestText;
     private int[] info;
-    private ArrayList<Integer> timer = new ArrayList<Integer>();
+    private ArrayList<String> timer = new ArrayList<String>();
     private int count;
-    private  int repRest;
-    private  int set;
+    private  String repRest;
+    private  String set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class exerciseOnly extends AppCompatActivity {
 
         count = 1;
         Intent intent = getIntent();
-        info = intent.getIntArrayExtra("INFO");
+        info = intent.getIntArrayExtra("INFO"); //Get the array containing sets and reps
         for (int element: info) {
             System.out.println(element);
         }
@@ -44,46 +45,58 @@ public class exerciseOnly extends AppCompatActivity {
         repsTimeText = findViewById(R.id.exerciseOnlyLengthLabel);
         restTimeText = findViewById(R.id.exerciseOnlyRestLabel);
         setsRestText = findViewById(R.id.exerciseOnlyRestSetLabel);
+        exerciseName = findViewById(R.id.exerciseOnlyNameEdit);
     }
-
+    /*
+    This will build a String Array List in a specified order designated by
+    [# of sets, set rest, exercises rest time, rep 1 length, rep 1 name, rep 2 length, rep 2 name, ... rep n length,
+    rep n name]
+    Thus when read into timer each pair will represent the exercise time, the name, and the constant
+    rest time. 
+     */
     public void next(View v){
         System.out.println("next start");
-        int rep = Integer.parseInt(repsTime.getText().toString());
         if (count == 1){
-            repRest = Integer.parseInt(repsRest.getText().toString());
-            set= Integer.parseInt(setsRest.getText().toString());
+            timer.add(Integer.toString(info[0])); //add # of sets
+            timer.add(setsRest.getText().toString()); //add rest between sets
+            timer.add(repsRest.getText().toString()); //add rest between reps
+
             restTimeText.setVisibility(View.INVISIBLE);
             setsRestText.setVisibility(View.INVISIBLE);
             repsRest.setVisibility(View.INVISIBLE);
             setsRest.setVisibility(View.INVISIBLE);
         }
-        timer.add(rep);
-        if (count < info[0]) {
-            System.out.println("IN IF");
-            timer.add(repRest);
-        }else{
-            timer.add(set);
-        }
+        timer.add(repsTime.getText().toString()); // removed reps variable for condensed code.
+        timer.add(exerciseName.getText().toString());
+
         count++;
         repsTime.setText("0");
         repsTimeText.setText("Exercise " + count + " length");
-        Intent intent;
 
-        if (count >= info[0]+1){
+
+        /* Keeping this code in case we need it later
+        if (count >= info[0]+1){ //if the last exercise has been added, begin setting up array
             int tempCount = 0;
-            int[] finTimer = new int[timer.size()*info[1]-1];
-            for (int i = 0; i < finTimer.length; i++){
-                finTimer[i] = timer.get(tempCount);
+            String[] finTimer = new String[timer.size()*info[0]-1]; //Get reps but -1 for better array management
+            for (int i = 0; i < finTimer.length; i++){ //Fill in timer array
+                finTimer[i] = timer.get(tempCount); //get value user entered at current position
                 if (tempCount == timer.size()-1){
                     tempCount = 0;
                 } else{
                     tempCount ++;
                 }
+
+
             }
-            intent = new Intent(this, startTimer.class);
-            intent.putExtra("timer", finTimer);
-            startActivity(intent);
+            */
+            if (count >= info[1] + 1) { //If the number of exercises added is >= the number to add +1
+                for(String exercise: timer)
+                {
+                    System.out.println(exercise);
+                }
+                Intent intent = new Intent(this, startTimer.class); //Moved intent creation
+                intent.putExtra("TIMER", timer); //down here to prevent pointless intent creation
+                startActivity(intent);
+            }
         }
     }
-
-}

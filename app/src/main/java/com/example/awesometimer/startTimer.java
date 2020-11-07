@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class startTimer extends AppCompatActivity {
+    private String[] timerStrings;
     private int[] timer;
     private boolean timerRunning;
     private CountDownTimer countDownTimer;
@@ -22,6 +23,9 @@ public class startTimer extends AppCompatActivity {
     private TextView countdownText;
     private Button countdownButton;
     private int countCountdown;
+    private int sets;
+    private int setRest;
+    private int repRest;
 
 
     @Override
@@ -31,7 +35,10 @@ public class startTimer extends AppCompatActivity {
         countdownText = findViewById(R.id.time);
         countdownButton = findViewById(R.id.startStop);
         Intent intent = getIntent();
-        timer = intent.getIntArrayExtra("timer");
+        timerStrings = intent.getStringArrayExtra("TIMER");
+        sets = Integer.parseInt(timerStrings[0]); //Get number of sets
+        setRest = Integer.parseInt(timerStrings[1]); //Get rest time between sets
+        repRest = Integer.parseInt(timerStrings[2]); //Get rest time between reps
         System.out.println("TIMER PAGE");
         System.out.println(timer[0]);
         timeLeftInMilliseconds = (timer[0] + 2) * 1000;
